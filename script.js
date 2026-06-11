@@ -1,39 +1,18 @@
-body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#f2f2f2;
-    font-family:Arial;
+function append(value){
+    document.getElementById("display").value += value;
 }
 
-.calculator{
-    background:#222;
-    padding:20px;
-    border-radius:10px;
-    width:300px;
+function clearDisplay(){
+    document.getElementById("display").value = "";
 }
 
-#display{
-    width:100%;
-    height:50px;
-    font-size:24px;
-    margin-bottom:10px;
-    text-align:right;
-}
+function calculate(){
+    let exp = document.getElementById("display").value;
 
-.buttons{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    try{
+        document.getElementById("display").value = eval(exp);
+    }
+    catch{
+        document.getElementById("display").value = "Error";
+    }
 }
-
-button{
-    height:50px;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.zero{
-    grid-column:span 4;
-      }
